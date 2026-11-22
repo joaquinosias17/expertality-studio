@@ -58,6 +58,33 @@ export async function generate(mode: "week" | "idea" | "rewrite", brand: Brand, 
     return { posts: j.posts, live: true };
   } catch {
     if (mode === "week" && brand.business === EXPERTALITY.business) return { posts: EXPERTALITY_WEEK, live: false };
-    throw new Error("The writer is busy. Try again in a moment.");
+    return { posts: offline(mode, brand, extra), live: false };
   }
+}
+
+// Used when the AI writer is unreachable: simple, safe posts built from what the owner told us.
+function offline(mode: string, b: Brand, extra: Record<string, unknown>): Omit<Post, "id" | "status">[] {
+  const name = b.business; const what = (b.sells || "what we do").split(/[.:(]/)[0].trim().toLowerCase(); const where = b.city.split(",")[0];
+  if (mode === "rewrite") {
+    const p = extra.post as Post; const t = String(extra.tweak || "");
+    const first = p.caption.split(/(?<=[.!?])\s/)[0];
+    return [{ ...p, caption: t.includes("shorter") ? first : t.includes("offer") ? `${p.caption} Ask us about this week's offer.` : t.includes("friendlier") ? `${p.caption} We would love to see you.` : p.caption }];
+  }
+  if (mode === "idea") {
+    const idea = String(extra.idea || "Something new");
+    const words = idea.split(" "); const h = [words.slice(0, 3).join(" "), words.slice(3, 6).join(" ")].filter(Boolean);
+    return [
+      { day: "Thu", time: "9:00 AM", format: "Reel", hook: h, caption: `${idea}. Come see us at ${name}${where ? " in " + where : ""}.`, cta: "Visit us this week", why: "Thursdays reach people planning their weekend." },
+      { day: "Fri", time: "11:00 AM", format: "Post", hook: h, caption: `${idea}. Tag someone who should know.`, cta: "Share with a friend", why: "A simple post people can share." },
+      { day: "Sat", time: "8:00 AM", format: "Story", hook: h, caption: `${idea}. Today at ${name}.`, cta: "Stop by today", why: "Stories work best on the day itself." },
+    ];
+  }
+  return [
+    { day: "Mon", time: "8:00 AM", format: "Reel", hook: ["New week at", name], caption: `A new week at ${name}. Here is what we have for you: ${what}.`, cta: "See what is new", why: "Starts the week by reminding people you are here." },
+    { day: "Wed", time: "11:00 AM", format: "Post", hook: ["Thank you,", where || "neighbors"], caption: `Thank you to everyone who stops by ${name}. You are the reason we open every day.`, cta: "Visit us this week", why: "Thank-you posts bring regulars back." },
+    { day: "Fri", time: "10:00 AM", format: "Google post", hook: ["Open this", "weekend"], caption: `${name} is open this weekend. Stop by for ${what}.`, cta: "Get directions", why: "Google posts on Friday bring weekend visits." },
+    new Date().getMonth() === 10
+      ? { day: "Sat", time: "9:00 AM", format: "Reel", hook: ["Small Business", "Saturday"], caption: `Small Business Saturday is the perfect day to visit ${name}. We are local and glad you are here.`, cta: "Shop small today", why: "Small Business Saturday falls on the last Saturday of November." }
+      : { day: "Sat", time: "9:00 AM", format: "Reel", hook: ["Made here,", "for you"], caption: `Everything at ${name} is made for this neighborhood. Come say hi this weekend.`, cta: "Visit this weekend", why: "Saturday mornings are when people explore." },
+  ];
 }
