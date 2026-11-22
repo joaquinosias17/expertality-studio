@@ -1,13 +1,12 @@
 const QA = [
-  { q: "Do store owners need to learn a new tool?", a: "No. They get one screen on their phone with the week ready. They tap approve, or type an idea in plain words. There is no editor to learn." },
-  { q: "What stops a store from posting something off-brand?", a: "Stores only build from templates your team approved, and every draft is checked against your brand guide before anyone sees it. Offers, partner names and anything off-script come to you first." },
-  { q: "Do the videos need people on camera?", a: "No. Reels are motion graphics made from your brand assets, product photos and type. A store can add its own photos when it wants to." },
-  { q: "Where does the music come from?", a: "From a licensed library. Each video gets a track that fits its type and length, cut on the beat. Your brand can lock a set of moods." },
-  { q: "Which networks does it post to?", a: "Instagram, Facebook, TikTok and Google Business Profile, on the schedule each location approves." },
-  { q: "Does it work in Spanish?", a: "Yes. Every post can go out in English, Spanish or both, using your official menu and product names in each language." },
-  { q: "How long does setup take?", a: "The plan is three weeks: we turn your guide into rules in week one, you approve the templates in week two, and stores go live in week three." },
-  { q: "Who pays, the brand or each franchisee?", a: "Either. We can bill the brand, for example from the ad fund, or bill each location directly." },
-  { q: "Do we have to sign for a year?", a: "Brand is billed yearly. If you want to test first, the 60-day pilot covers 10 locations, and what you pay goes toward setup." },
+  { q: "I am not good with technology. Can I use this?", a: "Yes. It is one screen on your phone. Each Monday your posts are ready, and you tap Approve. If you want to change something, you type it in plain words." },
+  { q: "Will it follow my franchise's rules?", a: "That is the point. We load your brand's rules and colors once, and every post is checked against them before you see it. Offers get the right fine print." },
+  { q: "Do I need to film videos or be on camera?", a: "No. Reels are made from your brand's look, your products and short text. You can add your own photos whenever you want." },
+  { q: "What if I forget to approve?", a: "Turn on Autopilot and safe posts go out on their own. Your page never sits empty." },
+  { q: "Where does it post?", a: "Instagram, Facebook, TikTok and your Google Business Profile, at the best time for your store." },
+  { q: "Can it post in Spanish?", a: "Yes. Each post can go out in English, Spanish or both." },
+  { q: "Do I need a credit card for the free trial?", a: "No. You get 14 days and your first week of posts for free. You only pay if you keep going." },
+  { q: "Can I cancel?", a: "Anytime, from the app. Your posts and photos stay yours." },
 ];
 
 export function Faq() {

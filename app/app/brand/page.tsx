@@ -1,3 +1,3 @@
-import { BrandKit } from "@/components/BrandKit";
-export const metadata = { title: "Brand kit · Expertality Studio" };
-export default function BrandPage() { return <BrandKit />; }
+import { MyBrand } from "@/components/owner/MyBrand";
+export const metadata = { title: "My brand · Expertality Studio" };
+export default function P() { return <MyBrand />; }

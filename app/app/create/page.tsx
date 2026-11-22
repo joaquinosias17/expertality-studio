@@ -1,3 +1,3 @@
-import { Create } from "@/components/Create";
-export const metadata = { title: "Create · Expertality Studio" };
-export default function CreatePage() { return <Create />; }
+import { Create } from "@/components/owner/Create";
+export const metadata = { title: "New post · Expertality Studio" };
+export default function P() { return <Create />; }

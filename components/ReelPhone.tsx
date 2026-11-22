@@ -13,7 +13,7 @@ export function ReelPhone() {
         <div className="absolute inset-x-2 bottom-2 rounded-[26px] bg-white/95 p-4 text-ink shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] backdrop-blur">
           {state === "review" ? (
             <>
-              <p className="text-[12px] text-ink-muted tabular">Mon 8:00 AM · Reel, 13 s · South Congress</p>
+              <p className="text-[12px] text-ink-muted tabular">Mon 8:00 AM · Reel · Mesa Coffee Co.</p>
               <p className="mt-0.5 text-[15px] font-semibold leading-snug">Holiday menu is here</p>
               <p className="mt-1 flex items-center gap-1.5 text-[12px] text-midnight"><Check className="size-3.5" />Passed every brand rule</p>
               <div className="mt-3 flex gap-2">
