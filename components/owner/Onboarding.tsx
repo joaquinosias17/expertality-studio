@@ -26,7 +26,7 @@ export function Onboarding() {
   function startBuild(b: Brand) { s.setBrand(b); setBuilding(b); setStep(5); track("onboarding_build", { example: b.business === "Expertality" ? "yes" : "no" }); }
 
   return (
-    <div className="flex min-h-dvh flex-1 flex-col lg:min-h-0">
+    <div className="flex min-h-dvh flex-1 flex-col lg:min-h-0 lg:overflow-y-auto">
       {step > 0 && step < 5 && (
         <header className="flex items-center gap-4 px-5 pt-5">
           <button onClick={back} className="min-h-11 text-[15px] font-semibold text-midnight" aria-label="Back">Back</button>
@@ -39,7 +39,7 @@ export function Onboarding() {
       <div key={step} className="slide-in flex flex-1 flex-col px-5 pb-6 pt-6">
         {step === 0 && (
           <>
-            <div className="mx-auto aspect-[9/16] w-[58%] max-w-[230px] overflow-hidden rounded-2xl shadow-[0_30px_60px_-30px_rgba(15,26,48,0.6)]">
+            <div className="mx-auto aspect-[9/16] w-[46%] max-w-[200px] overflow-hidden rounded-2xl shadow-[0_30px_60px_-30px_rgba(15,26,48,0.6)]">
               <BrandReel brand={EXPERTALITY} post={{ ...EXPERTALITY_WEEK[0] }} />
             </div>
             <h1 className="mt-8 font-display text-[34px] font-bold leading-[1.05] text-midnight">Your social media, done in one minute a week.</h1>
