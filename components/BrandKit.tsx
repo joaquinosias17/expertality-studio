@@ -40,7 +40,7 @@ export function BrandKit() {
                 </div>
                 <button role="switch" aria-checked={on[i]} aria-label={`${on[i] ? "Turn off" : "Turn on"}: ${c.rule}`} onClick={() => setOn((s) => ({ ...s, [i]: !s[i] }))}
                   className={`relative h-6 w-11 shrink-0 rounded-full transition-colors duration-200 ${on[i] ? "bg-midnight" : "bg-mist"}`}>
-                  <span className={`absolute top-0.5 size-5 rounded-full bg-white shadow transition-transform duration-200 ease-[var(--ease-out-expo)] ${on[i] ? "translate-x-[22px]" : "translate-x-0.5"}`} />
+                  <span className={`absolute left-0 top-0.5 size-5 rounded-full bg-white shadow transition-transform duration-200 ease-[var(--ease-out-expo)] ${on[i] ? "translate-x-[22px]" : "translate-x-0.5"}`} />
                 </button>
               </li>
             ))}
