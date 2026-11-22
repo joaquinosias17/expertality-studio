@@ -34,11 +34,11 @@ export function Pricing() {
         <div className="mt-8 grid grid-cols-2 gap-6 border-t border-midnight-raised pt-7">
           <div>
             <p className="text-[13px] text-mist">Per location, per month</p>
-            <p className="mt-1 font-display text-[56px] font-extralight leading-none tabular">{usd(per)}</p>
+            <p className="mt-1 font-display text-[40px] font-extralight leading-none tabular sm:text-[56px]">{usd(per)}</p>
           </div>
           <div>
             <p className="text-[13px] text-mist">Your monthly total</p>
-            <p className="mt-1 font-display text-[56px] font-extralight leading-none tabular">{usd(month)}</p>
+            <p className="mt-1 font-display text-[40px] font-extralight leading-none tabular sm:text-[56px]">{usd(month)}</p>
           </div>
         </div>
         <p className="mt-5 text-[14px] leading-relaxed text-mist">
