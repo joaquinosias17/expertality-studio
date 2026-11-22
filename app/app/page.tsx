@@ -3,9 +3,9 @@ import { BrandConsole } from "@/components/BrandConsole";
 export const metadata = { title: "Calendar · Expertality Studio" };
 
 const STATS = [
-  { n: "38", of: "/40", label: "locations approved this week" },
-  { n: "142", of: "", label: "posts scheduled" },
-  { n: "2", of: "", label: "waiting for you" },
+  { n: "38", of: "/40", label: "Locations approved this week" },
+  { n: "142", of: "", label: "Posts scheduled" },
+  { n: "2", of: "", label: "Waiting for you" },
 ];
 
 export default function CalendarPage() {
