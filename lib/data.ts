@@ -8,7 +8,24 @@ export const PHOTOS = {
   biscotti: "photo-1758900450186-e829f72d25fb", // Sadia Alam, Unsplash
   interior: "photo-1567880905822-56f8e06fe630", // Keghan Crossland, Unsplash
   counter: "photo-1790156590912-2ae0181ec895", // Ceba Solutions, Unsplash
+  pourMug: "photo-1577590294232-461f6967e66a", // Nathan Dumlao, Unsplash
+  croissants: "photo-1548538931-b47653628cdc", // Mimi Thian, Unsplash
+  latteArt: "photo-1541167760496-1628856ab772", // Fahmi Fakhrudin, Unsplash
+  glassLatte: "photo-1565210339691-46c2d66d0ac8", // Nicholas Grande, Unsplash
 };
+
+// Pricing. Brand is per location per month, billed yearly.
+export const BRAND_TIERS = [
+  { from: 10, to: 49, price: 49 },
+  { from: 50, to: 249, price: 39 },
+  { from: 250, to: Infinity, price: 29 },
+];
+export const brandPrice = (n: number) => (BRAND_TIERS.find((t) => n >= t.from && n <= t.to) ?? BRAND_TIERS[0]).price;
+export const setupFee = (n: number) => (n <= 50 ? 2500 : 5000);
+export const STORE_MONTHLY = 79;
+export const STORE_YEARLY = 790;
+export const PILOT = { price: 1500, stores: 10, days: 60 };
+export const usd = (n: number) => "$" + Math.round(n).toLocaleString("en-US");
 
 export type Post = {
   id: string;

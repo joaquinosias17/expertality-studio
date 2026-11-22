@@ -6,6 +6,7 @@ const ITEMS = [
   { href: "/app", label: "Calendar" },
   { href: "/app/create", label: "Create" },
   { href: "/app/week", label: "Store view" },
+  { href: "/app/brand", label: "Brand kit" },
 ];
 
 export function AppNav() {

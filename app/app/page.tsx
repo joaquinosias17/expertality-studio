@@ -1,3 +1,4 @@
+import { ReminderButton } from "@/components/ReminderButton";
 import { BrandConsole } from "@/components/BrandConsole";
 
 export const metadata = { title: "Calendar · Expertality Studio" };
@@ -21,6 +22,13 @@ export default function CalendarPage() {
         ))}
       </dl>
       <div className="mt-6 border border-line"><BrandConsole /></div>
+      <aside className="mt-6 grid gap-4 border border-line bg-white p-5 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
+        <div>
+          <p className="text-[15px] font-semibold text-ink">2 locations have not connected Instagram yet</p>
+          <p className="mt-1 text-[14px] text-ink-muted">Tucson, Oracle Road and El Paso, Kern Place. Their posts are ready and waiting.</p>
+        </div>
+        <ReminderButton />
+      </aside>
       <p className="mt-4 text-[12px] text-ink-muted">Sample data for Mesa Coffee Co., a fictional brand.</p>
     </main>
   );

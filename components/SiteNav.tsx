@@ -10,7 +10,7 @@ export function SiteNav() {
           <a href="#brands" className="hover:text-midnight">For brand teams</a>
           <a href="#stores" className="hover:text-midnight">For store owners</a>
           <a href="#pricing" className="hover:text-midnight">Pricing</a>
-          <Link href="/app" className="hover:text-midnight">Open the demo</Link>
+          <Link href="/app" className="hover:text-midnight">Demo</Link>
         </nav>
         <a href="#walkthrough" className="ml-auto inline-flex min-h-10 items-center whitespace-nowrap rounded-sm bg-midnight px-4 text-[14px] font-semibold text-white shadow-[inset_0_-3px_0_var(--color-red)] transition-transform duration-150 active:scale-[0.97] md:ml-0">
           Book a walkthrough

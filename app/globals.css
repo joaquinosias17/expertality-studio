@@ -41,3 +41,19 @@ p { text-wrap: pretty; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* Reel preview motion: slow push on photos, lines rising from a mask, story bars filling */
+@keyframes kb { from { transform: scale(1.14) translate3d(1.5%, 1%, 0); } to { transform: scale(1.02) translate3d(0, 0, 0); } }
+@keyframes rise { from { transform: translate3d(0, 105%, 0); } to { transform: translate3d(0, 0, 0); } }
+@keyframes fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes eq { 0%, 100% { transform: scaleY(0.35); } 50% { transform: scaleY(1); } }
+.kb { animation: kb var(--dur, 3.2s) cubic-bezier(0.25, 0.1, 0.25, 1) both; }
+.rise { animation: rise 0.7s var(--ease-out-expo) both; }
+.fill { transform-origin: left; animation: fill var(--dur, 3.2s) linear both; }
+.eq span { transform-origin: bottom; animation: eq 0.9s ease-in-out infinite; }
+.eq span:nth-child(2) { animation-delay: -0.3s; } .eq span:nth-child(3) { animation-delay: -0.6s; }
+@media (prefers-reduced-motion: reduce) { .kb, .rise, .fill, .eq span { animation: none !important; } .fill { transform: scaleX(1); } }
+
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .faq-plus { transform: rotate(45deg); }

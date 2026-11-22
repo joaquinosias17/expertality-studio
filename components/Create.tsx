@@ -19,7 +19,7 @@ const CHECKS = [
 
 export function Create() {
   const [idea, setIdea] = useState("Live music this Thursday at 7 pm");
-  const [step, setStep] = useState<"write" | "pick" | "review" | "sent">("write");
+  const [step, setStep] = useState<"write" | "thinking" | "pick" | "review" | "sent">("write");
   const [pick, setPick] = useState(IDEAS[0]);
   const [lang, setLang] = useState<"en" | "es">("en");
 
@@ -28,18 +28,27 @@ export function Create() {
       <h1 className="font-display text-[30px] font-bold leading-tight text-midnight">Create a post</h1>
       <ol className="mt-5 flex gap-6 text-[13px]" aria-label="Steps">
         {["Idea", "Choose", "Review"].map((s, i) => {
-          const at = ["write", "pick", "review"].indexOf(step === "sent" ? "review" : step);
+          const at = ["write", "pick", "review"].indexOf(step === "sent" ? "review" : step === "thinking" ? "pick" : step);
           return <li key={s} className={i <= at ? "font-semibold text-midnight" : "text-ink-muted"}><span className="tabular">{i + 1}</span> {s}</li>;
         })}
       </ol>
 
       {step === "write" && (
-        <form onSubmit={(e) => { e.preventDefault(); if (idea.trim()) setStep("pick"); }} className="mt-8 max-w-[640px] border border-line bg-white p-6">
+        <form onSubmit={(e) => { e.preventDefault(); if (idea.trim()) { setStep("thinking"); setTimeout(() => setStep("pick"), 1100); } }} className="mt-8 max-w-[640px] border border-line bg-white p-6">
           <label htmlFor="idea" className="text-[15px] font-semibold text-ink">What is happening at your store?</label>
           <textarea id="idea" value={idea} onChange={(e) => setIdea(e.target.value)} rows={3} className="mt-3 block w-full rounded-sm border border-mist p-3.5 text-[16px] leading-relaxed focus:border-midnight focus:outline-none" />
           <p className="mt-2 text-[13px] text-ink-muted">English or Spanish. Dates and times help.</p>
           <button className="mt-5 min-h-12 rounded-sm bg-midnight px-6 text-[15px] font-semibold text-white shadow-[inset_0_-3px_0_var(--color-red)] active:scale-[0.98]">Suggest posts</button>
         </form>
+      )}
+
+      {step === "thinking" && (
+        <section className="mt-8" aria-live="polite">
+          <p className="text-[15px] text-body">Writing three options from your approved templates</p>
+          <div className="mt-6 grid gap-5 sm:grid-cols-3">
+            {[0, 1, 2].map((k) => <div key={k} className="border border-line bg-white p-3"><div className="aspect-[9/16] animate-pulse bg-cloud" /><div className="mt-3 h-4 w-2/3 animate-pulse bg-cloud" /></div>)}
+          </div>
+        </section>
       )}
 
       {step === "pick" && (

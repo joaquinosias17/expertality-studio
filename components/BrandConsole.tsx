@@ -27,7 +27,7 @@ export function BrandConsole({ compact = false, stacked = false }: { compact?: b
         <p className="ml-auto text-[13px] text-ink-muted tabular"><span className="font-semibold text-midnight">38 of 40</span> locations approved</p>
       </div>
       <div className={`grid ${compact || stacked ? "" : "lg:grid-cols-[minmax(0,1fr)_280px]"}`}>
-        <div className="overflow-x-auto">
+        <div className="relative overflow-x-auto">
           <div className="grid min-w-[620px] grid-cols-[104px_repeat(7,minmax(0,1fr))] text-[12px]">
             <span />
             {DAYS.map((d) => <span key={d} className="px-2 py-2.5 font-semibold tabular">{d}</span>)}
