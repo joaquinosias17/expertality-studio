@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { SiteNav } from "@/components/SiteNav";
 import { BrandConsole } from "@/components/BrandConsole";
@@ -13,7 +12,7 @@ import { Faq } from "@/components/Faq";
 import { StickyCta } from "@/components/StickyCta";
 import { TrackedLink } from "@/components/TrackedLink";
 import { Logo } from "@/components/Logo";
-import { PHOTOS, photo } from "@/lib/data";
+import { PHOTOS } from "@/lib/data";
 
 const TEMPLATES = [
   { img: PHOTOS.latteArt, overlay: "Holiday menu is here", name: "Seasonal launch", meta: "Reel, 13 s" },
@@ -122,9 +121,6 @@ export default function Home() {
         <section id="stores" className="scroll-mt-16 bg-cloud">
           <div className="mx-auto grid max-w-[1240px] items-center gap-12 px-5 py-20 md:px-8 md:py-28 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20">
             <div className="relative order-2 lg:order-1">
-              <div className="absolute inset-x-[8%] -bottom-6 top-[12%] hidden overflow-hidden sm:block">
-                <Image src={photo(PHOTOS.counter, 1000)} alt="" fill sizes="500px" className="object-cover opacity-90" />
-              </div>
               <div className="relative"><PhoneWeek /></div>
             </div>
             <div className="order-1 lg:order-2">
@@ -177,7 +173,7 @@ export default function Home() {
         <section id="pricing" className="scroll-mt-16 border-b border-line">
           <div className="mx-auto max-w-[1240px] px-5 py-20 md:px-8 md:py-28">
             <div className="grid gap-6 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-16">
-              <h2 className="font-display text-[34px] font-bold leading-[1.08] text-midnight md:text-[42px]">Priced per location. Less than one agency retainer.</h2>
+              <h2 className="font-display text-[34px] font-bold leading-[1.08] text-midnight md:text-[42px]">Priced per location. A fraction of an agency.</h2>
               <p className="max-w-[52ch] text-[17px] leading-relaxed text-body md:pt-2">Move the slider to your number of locations. Every plan includes the templates, the music, the checks and unlimited users.</p>
             </div>
             <Pricing />
@@ -207,7 +203,6 @@ export default function Home() {
               <ul className="mt-8 space-y-2 text-[15px] text-mist">
                 <li>Reply within one business day</li>
                 <li>Pilot available: {`10 locations, 60 days`}</li>
-                <li>Prefer email? hello@expertality.com</li>
               </ul>
             </div>
             <LeadForm />
